@@ -11,4 +11,4 @@ spec:
   type: service
   owner: user:TigreDoMexico
   lifecycle: project
-  system: ${{values.system | jsonify}}
+  system: ${{values.system.name}}
