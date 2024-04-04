@@ -3,7 +3,7 @@ kind: Component
 metadata:
   name: ${{values.name}}
   {%- if values.description %}
-  description: ${{values.description | dump}}
+  description: ${{values.description}}
   {%- endif %}
   annotations:
     github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
@@ -11,4 +11,4 @@ spec:
   type: service
   owner: user:TigreDoMexico
   lifecycle: project
-  system: ${{values.system}}
+  system: ${{values.system.system}}
