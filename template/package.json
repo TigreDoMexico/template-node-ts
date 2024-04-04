@@ -1,7 +1,7 @@
 {
-  "name": "template-name",
+  "name": "${{ values.name }}",
   "version": "1.0.0",
-  "description": "TemplateName Description",
+  "description": "${{ values.name }} Description",
   "main": "index.js",
   "type": "module",
   "scripts": {

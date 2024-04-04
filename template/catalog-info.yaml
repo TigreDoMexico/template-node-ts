@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{ values.name }}
+  annotations:
+    github.com/project-slug: TigreDoMexico/${{ values.name }}
+spec:
+  type: service
+  owner: user:TigreDoMexico
+  lifecycle: project

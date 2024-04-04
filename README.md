@@ -1,4 +1,4 @@
 # TemplateName
 
 ## Objetivo do Template
-Padronizar um código NodeJS com Typescript
+Padronizar os códigos NodeJS com Typescript do meu repositório
