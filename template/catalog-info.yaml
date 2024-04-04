@@ -6,9 +6,9 @@ metadata:
   description: ${{values.description | dump}}
   {%- endif %}
   annotations:
-    github.com/project-slug: TigreDoMexico/${{values.name}}
+    github.com/project-slug: {{values.destination.owner + "/" + values.destination.repo}}
 spec:
   type: service
   owner: user:TigreDoMexico
   lifecycle: project
-  system: ${{values.system.name}}
+  system: ${{values.system | jsonify}}
