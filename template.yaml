@@ -22,7 +22,7 @@ spec:
           ui:options:
             rows: 5
         description:
-          title: Descrição
+          title: Descrição do Projeto
           type: string
           description: Para que é esse projeto
         system:
@@ -54,12 +54,15 @@ spec:
         url: ./template
         values:
           name: ${{ parameters.name }}
+          system: ${{ parameters.system }}
+          destination: ${{ parameters.repoUrl | parseRepoUrl }}
 
     - id: publish
       name: Publish
       action: publish:github
       input:
-        allowedHosts: ['github.com']
+        allowedHosts:
+          - 'github.com'
         description: This is ${{ parameters.name }}
         repoUrl: ${{ parameters.repoUrl }}
 
@@ -67,13 +70,13 @@ spec:
       name: Register
       action: catalog:register
       input:
-        repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }}
-        catalogInfoPath: '/catalog-info.yaml'
+        repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+        catalogInfoPath: "/catalog-info.yaml"
 
   output:
     links:
       - title: Repository
-        url: ${{ steps['publish'].output.remoteUrl }}
+        url: ${{ steps.publish.output.remoteUrl }}
       - title: Open in catalog
         icon: catalog
-        entityRef: ${{ steps['register'].output.entityRef }}
+        entityRef: ${{ steps.register.output.entityRef }}
