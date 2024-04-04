@@ -1,14 +1,14 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: ${{values.name | dump}}
+  name: ${{values.name}}
   {%- if values.description %}
   description: ${{values.description | dump}}
   {%- endif %}
   annotations:
-    github.com/project-slug: TigreDoMexico/${{values.name | dump}}
+    github.com/project-slug: TigreDoMexico/${{values.name}}
 spec:
   type: service
   owner: user:TigreDoMexico
   lifecycle: project
-  system: ${{values.system | dump}}
+  system: ${{values.system.name}}
